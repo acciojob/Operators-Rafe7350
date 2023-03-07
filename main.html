@@ -7,9 +7,81 @@
 </head>
 
 <body>
+
+	<h1>Calculator and Text Changer</h1>
+
+	<label for="num1">Number 1:</label>
+	<input type="number" id="num1" />
+
+	<label for="num2">Number 2:</label>
+	<input type="number" id="num2" />
+
+	<label for="operator">Operator:</label>
+	<select id="operator">
+		<option value="+">Addition</option>
+		<option value="-">Subtraction</option>
+		<option value="*">Multiplication</option>
+		<option value="/">Division</option>
+	</select>
+
+	<button id="calculate">Calculate</button>
+
+	<div id="result"></div>
+
+	<div class="division">Hello</div>
+	<div class="division">Welcome</div>
+	<div class="division">To</div>
+	<div class="division">My</div>
+	<div class="division">Class</div>
+
+	<button id="change_text">Change Text</button>
+
 	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+	<script>
+
+		const calculateBtn = document.getElementById("calculate");
+		const num1Input = document.getElementById("num1");
+		const num2Input = document.getElementById("num2");
+		const operatorSelect = document.getElementById("operator");
+		const resultDiv = document.getElementById("result");
+
+		calculateBtn.addEventListener("click", () => {
+			const num1 = Number(num1Input.value);
+			const num2 = Number(num2Input.value);
+			const operator = operatorSelect.value;
+			let result;
+
+			switch (operator) {
+				case "+":
+					result = num1 + num2;
+					break;
+				case "-":
+					result = num1 - num2;
+					break;
+				case "*":
+					result = num1 * num2;
+					break;
+				case "/":
+					result = num1 / num2;
+					break;
+				default:
+					result = "Invalid operator";
+			}
+
+			resultDiv.innerText = `Result: ${result}`;
+		});
+
+		const changeTextBtn = document.getElementById("change_text");
+		const textDivs = document.getElementsByClassName("division");
+
+		changeTextBtn.addEventListener("click", () => {
+			textDivs[0].innerText = "Bye";
+			textDivs[1].innerText = "Good Bye";
+			textDivs[3].innerText = "Your";
+		});
+
+
+	</script>
 
 </body>
 
